@@ -23,15 +23,16 @@ function AddHourForm(props) {
     console.log(+hour, +minute, +second)
     if(+hour > 0 || +minute > 0 || +second >  0) {
       console.log("that worked")
-      if ((+hour === 0) && (+minute === 0) && (+second >= 10) )
+      if ((+hour === 0) && (+minute === 0) && (+second < 10))
+      {
+        alert("Value must be above 10s!")
+      }
+      else
       {
         console.log(hour, minute, second)
         value = +hour*60*60 + +minute * 60 + +second;
         console.log(value)
         props.handleSubmit(value);
-      }
-      else{
-        alert("Value must be above 10s!")
       }
     }
     e.preventDefault();
